@@ -1,11 +1,13 @@
-const lottie = require("./lottie");
-
-element = document.getElementById("bm");
+const element = document.getElementById("bm");
 
 let animation = lottie.loadAnimation({
   container: element,
   renderer: "svg",
-  loop: true,
-  autoplay: true,
+  loop: false,
+  autoplay: {
+    play: function (event) {
+      event.addEventListener("view", () => {});
+    },
+  },
   path: "data.json",
 });
